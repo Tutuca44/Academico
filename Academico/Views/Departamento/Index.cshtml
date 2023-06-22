@@ -1,0 +1,50 @@
+﻿@model List<TbDepartamento>
+@{
+    ViewData["Title"] = "Listagem de Departamentos";
+}
+
+<div class="text-center">
+
+     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Departamento" asp-action="Criar">Adicionar novo Departamento</a>
+     </div>
+        <br />
+
+    <h1 class=display-4>Listagem de Departamento</h1> 
+
+    <table class="table">
+             <thead>
+                <tr>
+                    <th scope="col">ID Departamento</th>
+                    <th scope="col">Nome Deprtamento</th>
+                    <th scope="col">Localizaçao</th>
+                    <th scope="col">ID Gerente</th>
+                    <th scope="col">FG Ativo</th>
+                    <th scope="col"></th>
+                </tr>
+             </thead>  
+        <tbody>
+                @if (Model != null && Model.Any())
+                {
+                  foreach (TbDepartamento departamento in Model)
+                  {
+                    <tr>
+                        <th scope="row">@departamento.IdDepartamento</th>
+                        <td>@departamento.NmDepartamento</td>
+                        <td>@departamento.Localizacao</td>
+                        <td>@departamento.IdGerente</td>
+                        <td>@departamento.FgAtivo</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a role="button" class="btn btn-primary" asp-route-id="@departamento.IdDepartamento" asp-controller="Departamento" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@departamento.IdDepartamento" asp-controller="Departamento" asp-action="Apagar">Apagar</a>
+                            </div>
+                       </td>
+                    </tr>
+                  }
+                }             
+         </tbody>
+     </table>            
+   
+</div>
+

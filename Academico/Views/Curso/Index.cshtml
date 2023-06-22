@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Aperfeiçoa - Cursos";
+}
+<link rel="stylesheet" href="~/lib/datatables/css/dataTables.bootstrap4.min.css"/>
+
+<div class="text-center">
+    <h1>Cursos</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <div class="col-auto">
+            <p>
+                <a asp-action="Create">Novo Curso</a>
+            </p>
+        </div>
+        <table id="cursoTable" class="table table-striped table-bordered table-hover dt-responsive nowrap" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Duração</th>
+                    <th>Ativo</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#cursoTable").dataTable({
+                "processing" :  true,
+                "serverSide" : true,
+                "ajax" : {
+                    "url" : "@Url.Action("GetCursos")",
+                    "type" : "POST",
+                    "datatype" : "json"
+                },
+                "columnDefs" : [{
+                    "targets" : [0],
+                    "visible" : false,
+                    "searchable" : false
+                }],
+                "columns" : [
+                    { "data": "idCurso", "name" : "Id", "autoWidth" : true },
+                    { "data": "dsCurso", "name" : "Nome", "autoWidth" : true },
+                    { "data": "categoria", "name" : "Categoria", "autoWidth" : true },
+                    { "data": "duracao", "name" : "Duração", "autoWidth" : true },
+                    { "data": "ativo", "name" : "Ativo", "autoWidth" : true },
+                ],
+                "language": {
+                    url: "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese.json"
+                }
+            });
+        }); 
+    </script>
+}

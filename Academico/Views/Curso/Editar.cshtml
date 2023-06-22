@@ -1,0 +1,37 @@
+﻿@model TbCurso
+@{ 
+    ViewData["Title"] = "Editar Curso";
+}
+
+<div class="text-center">
+
+     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Curso" asp-action="Index">Adicionar novo Departamento</a>
+     </div>
+        <br />
+
+    <h1 class=display-4>Listagem de Departamento</h1> 
+    </div>
+   <form>
+        <div>
+        <input type="hidden" asp-for="IdCurso"  />
+        </div>
+        <div class="form-group">
+            <label for="nome departamento">Nome Departamento</label>
+            <input type="text" asp-for="DsCurso" class="form-control" placeholder="Digite o nome do Curso" />
+        </div>
+           <div class="form-group">
+            <label for="localização departamento">localização</label>
+            <input type="text" asp-for="Categoria" class="form-control" placeholder="Digite a cartegoria do curso" />
+        </div>
+        
+           <div class="form-group">
+            <label for="id_gerente departamento">id_gerente</label>
+            <input type="text" asp-for="Duracao" class="form-control" placeholder="duraçao do curso" />
+        </div>
+        
+           <div class="form-group">
+            <label for="fg_ativo departamento">fg_ativo</label>
+            <input type="text" asp-for="FgAtivo" class="form-control" placeholder="Digite o fg_ativo do departamento" />
+        </div>
+    </form>

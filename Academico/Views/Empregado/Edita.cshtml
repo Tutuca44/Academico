@@ -1,0 +1,52 @@
+﻿@model TbEmpregado
+@{ 
+    ViewData["Title"] = "Editar Empregado";
+}
+
+<div class="text-center">
+
+     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Empregado" asp-action="Index">Adicionar novo Empregado</a>
+        </div>
+        <br />
+
+    <h1 class=display-4>Listagem de Empregado</h1> 
+    </div>
+   <form>
+        <input type="hidden" asp-for="IdEmpregado"  />
+        <div class="form-group">
+            <label for="nome empregado">Nome Empregado</label>
+            <input type="text" asp-for="NmEmpregado" class="form-control" placeholder="digite o nome do empregado" />
+        </div>
+         <div class="form-group">
+            <label for="nome empregado">nome departamento</label>
+            <input type="text" asp-for="IniciaisEmpregado" class="form-control" placeholder="digite o nome do empregado" />
+        </div>
+        <div class="form-group">
+            <label for="Descricao do Cargo">Descricao do Cargo</label>
+            <input type="text" asp-for="DsCargos" class="form-control" placeholder="Descricao do Cargo " />
+        </div>
+        
+        <div class="form-group">
+            <label for="id_gerente empregado">id_gerente</label>
+            <input type="text" asp-for="IdGerete" class="form-control" placeholder="digite o id do gerente " />
+        </div>
+        
+        <div class="form-group">
+            <label for="data de nascimento do empregado">dt_nascimento</label>
+            <input type="text" asp-for="DtNascimento" class="form-control" placeholder="digite o data de nascimento " />
+        </div>
+         <div class="form-group">
+            <label for="salario empregado">salario</label>
+            <input type="text" asp-for="Salario" class="form-control" placeholder="digite o salario " />
+        </div>
+        <div class="form-group">
+            <label for="comissao empregado">comissao</label>
+            <input type="text" asp-for="Comissao" class="form-control" placeholder="digite o comissao " />
+        </div>
+        <div class="form-group">
+            <label for="IdDepartamento empregado">IdDepartamento</label>
+            <input type="text" asp-for="IdDepartamento" class="form-control" placeholder="digite o Id do Departamento " />
+        </div>
+        
+    </form>
